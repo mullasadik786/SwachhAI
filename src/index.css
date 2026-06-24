@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Custom scrollbar for beautiful lists */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.3);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(156, 163, 175, 0.5);
+}
+
+/* --- Animated Live Wallpaper Backdrops --- */
+
+/* Floating Leaves */
+@keyframes floatLeaf {
+  0% {
+    transform: translateY(110vh) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-10vh) translateX(100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.leaf-particle {
+  position: fixed;
+  pointer-events: none;
+  z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2310b981' opacity='0.3'%3E%3Cpath d='M17 8C17 11 15 15 12 17C12 15 13 11 16 8M21 2C21 2 14 3 10 7C7.5 9.5 6.5 13.5 6.5 13.5C6.5 13.5 4.5 11.5 3 11.5C1.5 11.5 1 12.5 1 12.5C1 12.5 4 14.5 6 15.5C5 17.5 3 21 3 21C3 21 6.5 19 8.5 18C9.5 20 11.5 23 11.5 23C11.5 23 12.5 22.5 12.5 21C12.5 19.5 10.5 17.5 10.5 17.5C10.5 17.5 14.5 16.5 17 14C21 10 21 3 21 3V2'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 28px;
+  height: 28px;
+  animation: floatLeaf 15s linear infinite;
+}
+
+/* Floating Solar Dust / Petals */
+@keyframes floatSolar {
+  0% {
+    transform: translateY(110vh) translateX(0) rotate(0deg) scale(0.8);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-10vh) translateX(-80px) rotate(180deg) scale(1.2);
+    opacity: 0;
+  }
+}
+
+.solar-particle {
+  position: fixed;
+  pointer-events: none;
+  z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23f59e0b' opacity='0.35'%3E%3Ccircle cx='12' cy='12' r='8'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 14px;
+  height: 14px;
+  animation: floatSolar 12s linear infinite;
+}
+
+/* Aurora Waves */
+@keyframes auroraPulse {
+  0%, 100% {
+    opacity: 0.15;
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    opacity: 0.35;
+    filter: hue-rotate(45deg);
+  }
+}
+
+.aurora-glow {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.15) 0%, rgba(99, 102, 241, 0.05) 50%, transparent 100%);
+  z-index: 0;
+  pointer-events: none;
+  animation: auroraPulse 20s ease-in-out infinite;
+}
+
+/* Swachh Bharat Tri-color pulse */
+@keyframes swachhPulse {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.35;
+    transform: scale(1.05);
+  }
+}
+
+.swachh-glow {
+  position: fixed;
+  top: 10%;
+  left: 10%;
+  right: 10%;
+  bottom: 10%;
+  background: radial-gradient(ellipse at center, rgba(249, 115, 22, 0.07) 0%, rgba(255,255,255,0.02) 40%, rgba(16, 185, 129, 0.07) 100%);
+  filter: blur(80px);
+  z-index: 0;
+  pointer-events: none;
+  animation: swachhPulse 14s ease-in-out infinite;
+}

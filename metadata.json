@@ -1,0 +1,6 @@
+{
+  "name": "SwachhAI",
+  "description": "An AI-powered Swachh Bharat waste management assistant that uses visual recognition to identify waste types, provide local disposal guidelines, and reward responsible sorting.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
