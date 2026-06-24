@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+﻿import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import Header from "./components/Header";
 import HeroPanel from "./components/HeroPanel";
@@ -27,7 +27,7 @@ export default function App() {
 
   // VVP (Vibrant Villages Programme) state
   const [vvpMode, setVvpMode] = useState<boolean>(false);
-  const [vvpVillage, setVvpVillage] = useState<string>("Diskit (Ladakh Border Valley) 🏔️");
+  const [vvpVillage, setVvpVillage] = useState<string>("Diskit (Ladakh Border Valley) ðŸ”ï¸");
 
   // Points & Log Histories
   const [userPoints, setUserPoints] = useState<number>(250); // Default points for store trials
@@ -96,12 +96,12 @@ export default function App() {
       category: category as any,
       categoryLabel: 
         category === "wet" 
-          ? "తడి చెత్త (Wet Waste)" 
+          ? "à°¤à°¡à°¿ à°šà±†à°¤à±à°¤ (Wet Waste)" 
           : category === "recyclable" 
-          ? "రీసైకిల్ చేయదగిన వ్యర్థాలు (Recyclable Dry Waste)" 
+          ? "à°°à±€à°¸à±ˆà°•à°¿à°²à± à°šà±‡à°¯à°¦à°—à°¿à°¨ à°µà±à°¯à°°à±à°¥à°¾à°²à± (Recyclable Dry Waste)" 
           : category === "hazardous" 
-          ? "ప్రమాదకరమైన వ్యర్థాలు (Hazardous E-Waste)" 
-          : "పొడి చెత్త (Dry Waste)",
+          ? "à°ªà±à°°à°®à°¾à°¦à°•à°°à°®à±ˆà°¨ à°µà±à°¯à°°à±à°¥à°¾à°²à± (Hazardous E-Waste)" 
+          : "à°ªà±Šà°¡à°¿ à°šà±†à°¤à±à°¤ (Dry Waste)",
       pointsReward: pts,
       pinCode,
       image
@@ -120,9 +120,9 @@ export default function App() {
 
     const celebrationText = 
       language === "te" 
-        ? `అద్భుతం! ${currentName} విజయవంతంగా వర్గీకరించబడింది. +${pts} పాయింట్లు లభించాయి!` 
+        ? `à°…à°¦à±à°­à±à°¤à°‚! ${currentName} à°µà°¿à°œà°¯à°µà°‚à°¤à°‚à°—à°¾ à°µà°°à±à°—à±€à°•à°°à°¿à°‚à°šà°¬à°¡à°¿à°‚à°¦à°¿. +${pts} à°ªà°¾à°¯à°¿à°‚à°Ÿà±à°²à± à°²à°­à°¿à°‚à°šà°¾à°¯à°¿!` 
         : language === "hi"
-        ? `शानदार! ${currentName} का सफलतापूर्वक वर्गीकरण किया गया। आपको +${pts} अंक मिले!`
+        ? `à¤¶à¤¾à¤¨à¤¦à¤¾à¤°! ${currentName} à¤•à¤¾ à¤¸à¤«à¤²à¤¤à¤¾à¤ªà¥‚à¤°à¥à¤µà¤• à¤µà¤°à¥à¤—à¥€à¤•à¤°à¤£ à¤•à¤¿à¤¯à¤¾ à¤—à¤¯à¤¾à¥¤ à¤†à¤ªà¤•à¥‹ +${pts} à¤…à¤‚à¤• à¤®à¤¿à¤²à¥‡!`
         : `Excellent! ${currentName} successfully categorized. You earned +${pts} points!`;
     
     setCelebrationMessage(celebrationText);
@@ -261,7 +261,7 @@ export default function App() {
         <InnovationPortal
           language={language}
           userPoints={userPoints}
-          onPointsEarned={(pts) => handlePointsEarned(pts, "Premium Milestone / ప్రీమియం కార్యాచరణ / प्रीमियम गतिविधि", "recyclable")}
+          onPointsEarned={(pts) => handlePointsEarned(pts, "Premium Milestone / à°ªà±à°°à±€à°®à°¿à°¯à°‚ à°•à°¾à°°à±à°¯à°¾à°šà°°à°£ / à¤ªà¥à¤°à¥€à¤®à¤¿à¤¯à¤® à¤—à¤¤à¤¿à¤µà¤¿à¤§à¤¿", "recyclable")}
           onDeductPoints={(pts) => {
             if (userPoints >= pts) {
               handleDeductPoints(pts);
@@ -312,7 +312,7 @@ export default function App() {
             </div>
             <div>
               <p className="text-xs font-black font-mono tracking-wider text-amber-300 uppercase">
-                {language === "te" ? "బహుమతి లభించింది!" : language === "hi" ? "अंक प्राप्त हुए!" : "Points Awarded!"}
+                {language === "te" ? "à°¬à°¹à±à°®à°¤à°¿ à°²à°­à°¿à°‚à°šà°¿à°‚à°¦à°¿!" : language === "hi" ? "à¤…à¤‚à¤• à¤ªà¥à¤°à¤¾à¤ªà¥à¤¤ à¤¹à¥à¤!" : "Points Awarded!"}
               </p>
               <p className="text-xs font-semibold mt-0.5 leading-snug">
                 {celebrationMessage}
@@ -322,7 +322,7 @@ export default function App() {
               onClick={() => setCelebrationMessage(null)}
               className="ml-auto text-white/70 hover:text-white hover:bg-white/10 rounded-lg p-1.5 transition-colors font-bold text-xs"
             >
-              ✕
+              âœ•
             </button>
           </motion.div>
         )}
