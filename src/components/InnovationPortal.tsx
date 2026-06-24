@@ -9,7 +9,7 @@ export interface BorderVillageTrail {
   plasticWeightCollectedKg: number;
 }
 
-export const InnovationPortal: React.FC = () => {
+const InnovationPortal: React.FC = () => {
   const [vvpMode, setVvpMode] = useState<boolean>(false);
   const [selectedState, setSelectedState] = useState<string>("All");
 
@@ -23,7 +23,7 @@ export const InnovationPortal: React.FC = () => {
 
   return (
     <div style={{ padding: "24px", background: "rgba(255,255,255,0.1)", backdropFilter: "blur(12px)", borderRadius: "16px", border: "1px solid rgba(255,255,255,0.2)", color: "white", marginTop: "24px" }}>
-      <div style={{ display: "flex", justifyContent: "between", alignItems: "center" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <h2 style={{ fontSize: "20px", fontWeight: "bold" }}>🌄 Vibrant Villages Programme (VVP) Eco-Tracker</h2>
         <button onClick={() => setVvpMode(!vvpMode)} style={{ padding: "8px 16px", borderRadius: "20px", background: vvpMode ? "#10b981" : "rgba(255,255,255,0.2)", color: "white", border: "none", cursor: "pointer" }}>
           {vvpMode ? "VVP Active" : "Enable VVP Mode"}
@@ -58,3 +58,5 @@ export const InnovationPortal: React.FC = () => {
     </div>
   );
 };
+
+export default InnovationPortal;
