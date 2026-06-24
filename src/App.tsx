@@ -6,6 +6,7 @@ import { translations } from "./utils/translations";
 function App() {
   const [currentLang, setCurrentLang] = useState<"EN" | "తెలుగు" | "हिंदी">("EN");
   const [glassWhiteness, setGlassWhiteness] = useState<number>(12);
+  const pincode = "522020";
 
   return (
     <div className="min-h-screen relative font-sans overflow-x-hidden text-white bg-slate-900">
