@@ -6,8 +6,7 @@ import { translations } from "./utils/translations";
 function App() {
   const [currentLang, setCurrentLang] = useState<"EN" | "తెలుగు" | "हिंदी">("EN");
   const [glassWhiteness, setGlassWhiteness] = useState<number>(12);
-  const [vvpMode, setVvpMode] = useState<boolean>(true);
-  const [pincode, setPincode] = useState<string>("522020");
+  const [pincode] = useState<string>("522020");
 
   return (
     <div className="min-h-screen relative font-sans overflow-x-hidden text-white selection:bg-orange-500/30">
@@ -17,7 +16,7 @@ function App() {
       {/* Glassmorphism Global Overlay */}
       <div 
         className="absolute inset-0 pointer-events-none transition-all duration-300"
-        style={{ backgroundColor: `rgba(255, 255, 255, ${glassWhiteness / 100})`, backdropFilter: "blur(4px)" }}
+        style={{ backgroundColor: `rgba(255, 255, 255, \${glassWhiteness / 100})`, backdropFilter: "blur(4px)" }}
       />
 
       {/* Main Content Dashboard Container */}
@@ -36,13 +35,13 @@ function App() {
                 <button
                   key={lang}
                   onClick={() => setCurrentLang(lang)}
-                  className={`px-3 py-1 text-xs font-semibold rounded-md transition-all ${currentLang === lang ? "bg-orange-500 text-white shadow" : "text-slate-400 hover:text-white"}`}
+                  className={`px-3 py-1 text-xs font-semibold rounded-md transition-all \${currentLang === lang ? "bg-orange-500 text-white shadow" : "text-slate-400 hover:text-white"}`}
                 >
                   {lang}
                 </button>
               ))}
             </div>
-            <span className="text-xs text-emerald-400 bg-emerald-500/10 px-2 py-1 rounded-full border border-emerald-500/20 animate-pulse font-medium">● AI Active</span>
+            <span className="text-xs text-emerald-400 bg-emerald-500/10 px-2 py-1 rounded-full border border-emerald-500/20 font-medium">● AI Active</span>
           </div>
         </div>
 
@@ -51,17 +50,17 @@ function App() {
           <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-orange-500/10 to-transparent pointer-events-none rounded-bl-full" />
           
           <div className="relative space-y-2">
-            <div className="text-xs font-bold tracking-widest text-orange-400 uppercase">{translations[currentLang].mission}</div>
+            <div className="text-xs font-bold tracking-widest text-orange-400 uppercase">{translations[currentLang]?.mission || "Swachh Bharat Mission"}</div>
             <h1 className="text-2xl md:text-4xl font-extrabold text-white tracking-tight drop-shadow-sm">
-              {translations[currentLang].slogan}
+              {translations[currentLang]?.slogan || "Cleanliness is Next to Godliness"}
             </h1>
             <div className="w-20 h-1 bg-gradient-to-r from-orange-500 via-white to-emerald-500 rounded-full my-4" />
             
             <h3 className="text-lg md:text-xl font-medium text-slate-100 mt-4 pt-2">
-              {translations[currentLang].namaskar}
+              {translations[currentLang]?.namaskar || "Namaskar!"}
             </h3>
             <p className="text-sm md:text-base text-slate-300 leading-relaxed max-w-2xl">
-              {translations[currentLang].subtext}
+              {translations[currentLang]?.subtext || ""}
             </p>
           </div>
 
@@ -80,9 +79,9 @@ function App() {
               <button
                 key={val}
                 onClick={() => setGlassWhiteness(val)}
-                className={`px-4 py-2 rounded-lg text-xs font-medium transition-all ${glassWhiteness === val ? "bg-white text-black" : "bg-white/5 border border-white/10 hover:bg-white/10"}`}
+                className={`px-4 py-2 rounded-lg text-xs font-medium transition-all \${glassWhiteness === val ? "bg-white text-black" : "bg-white/5 border border-white/10 hover:bg-white/10"}`}
               >
-                {val === 12 ? "Default (12%)" : `${val}%`}
+                {val === 12 ? "Default (12%)" : `\${val}%`}
               </button>
             ))}
           </div>
